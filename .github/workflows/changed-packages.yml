@@ -54,3 +54,4 @@ jobs:
             browsers:
               - '.github/workflows/ci.yml'
               - 'packages/browsers/**'
+ 
