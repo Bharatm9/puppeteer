@@ -19,7 +19,7 @@
     "format": "run-s format:*",
     "generate:markdown": "tsx tools/generate_docs.ts",
     "lint:eslint": "([ \"$CI\" = true ] && eslint --ext js --ext ts --quiet -f codeframe . || eslint --ext js --ext ts .)",
-    "lint:prettier:fix": "prettier --check .",
+    "lint:prettier:fix": "npm run prettier --fix && npm run lint",
     "lint": "run-s lint:prettier lint:eslint",
     "postinstall": "npm run postinstall --workspaces --if-present",
     "test-install": "npm run test --workspace @puppeteer-test/installation",
