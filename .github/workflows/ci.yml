@@ -35,6 +35,8 @@ jobs:
           PUPPETEER_SKIP_DOWNLOAD: true
       # Set up GitHub Actions caching for Wireit.
       - uses: google/wireit@f3a3c79c553122e2fe5829eeac7d815326502903 # setup-github-actions-caching/v1
+      - name: Check code
+        run: npm run check
       - name: Lint code
         run: |
           npm run lint:prettier:fix # Add this line to run Prettier and fix formatting issues
