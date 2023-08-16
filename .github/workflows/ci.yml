@@ -112,23 +112,23 @@ jobs:
             "https://crawler.algolia.com/api/1/crawlers/$CRAWLER_ID/reindex"
 
   chrome-tests:
-  name: ${{ matrix.suite }} tests on ${{ matrix.os }}
-  runs-on: ${{ matrix.os }}
-  needs: check-changes
-  if: ${{ contains(fromJSON(needs.check-changes.outputs.changes), 'puppeteer') }}
-  strategy:
-    fail-fast: false
-    matrix:
-      os:
+    name: ${{ matrix.suite }} tests on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    needs: check-changes
+    if: ${{ contains(fromJSON(needs.check-changes.outputs.changes), 'puppeteer') }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
         - ubuntu-latest
         - windows-latest
         - macos-latest
-      suite:
+        suite:
         - chrome-headless
         - chrome-headful
         - chrome-new-headless
         - chrome-bidi
-      exclude:
+        exclude:
         - os: windows-latest
           suite: chrome-bidi
         - os: macos-latest
